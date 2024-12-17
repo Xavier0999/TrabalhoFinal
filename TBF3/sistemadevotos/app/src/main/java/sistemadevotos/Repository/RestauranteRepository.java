@@ -27,7 +27,7 @@ public class RestauranteRepository {
      * </p>
      */
 
-    public RestaurantesRepository() {
+    public RestauranteRepository() {
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("DB");
         em = factory.createEntityManager();
     }
@@ -36,9 +36,9 @@ public class RestauranteRepository {
      *
      * @param restaurantes O objeto {@code Restaurantes} que será persistido ou atualizado.
      */
-    public void inserirRest(Restaurantes restaurantes) {
+    public void inserirRest(Restaurante restaurante) {
         this.em.getTransaction().begin();
-        this.em.merge(restaurantes);
+        this.em.merge(restaurante);
         this.em.getTransaction().commit();
 
 }
@@ -49,17 +49,17 @@ public class RestauranteRepository {
      * @return Um objeto {@code Restaurantes} correspondente ao ID fornecido,
      *         ou {@code null} se não for encontrado.
      */
-public Restaurantes buscarRestId(Integer id) {
-        return  this.em.find(Restaurantes.class, id);
+public Restaurante buscarRestId(Integer id) {
+        return  this.em.find(Restaurante.class, id);
 }
  /**
      * Retorna a lista completa de restaurantes cadastrados, ordenados por nome.
      *
      * @return Uma lista de {@code Restaurantes}, ordenada em ordem alfabética pelo nome.
      */
-public List<Restaurantes> listar(){
-    TypedQuery<Restaurantes> buscarTodosQuery =
-    this.em.createQuery("select e from Restaurantes e order by e.nome", Restaurantes.class);
+public List<Restaurante> listar(){
+    TypedQuery<Restaurante> buscarTodosQuery =
+    this.em.createQuery("select e from Restaurante e order by e.nome", Restaurante.class);
         return buscarTodosQuery.getResultList();
 }
 
@@ -73,9 +73,9 @@ public List<Restaurantes> listar(){
      * @return Uma lista de {@code Restaurantes} que correspondem ao nome informado.
      */
 
-public List<Restaurantes> buscarPorNomeApp(String nome) {
-    TypedQuery<Restaurantes> buscarTodosQuery =
-            this.em.createQuery("select e from Restaurantes e where UPPER(e.nome) like :nome order by e.nome", Restaurantes.class);
+public List<Restaurante> buscarPorNomeApp(String nome) {
+    TypedQuery<Restaurante> buscarTodosQuery =
+            this.em.createQuery("select e from Restaurante e where UPPER(e.nome) like :nome order by e.nome", Restaurante.class);
     buscarTodosQuery.setParameter("nome", nome.toUpperCase()+"%");
 
     return buscarTodosQuery.getResultList();

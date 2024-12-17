@@ -78,15 +78,21 @@ public class Sistema {
      *
      * @throws LimiteDeVotosDiariosException Se o limite diário de votos for excedido.
      */
-    private static void cadastroDeVoto() throws LimiteDeVotosDiariosException {
-        String nomeFuncionario = TecladoUtil.lerString("Informe o nome do Funcionário:");
-        String nomeRestaurante = TecladoUtil.lerString("Informe o nome do Restaurante:");
-
-        controller.CadVoto(nomeFuncionario, nomeRestaurante);
-
-        System.out.println("Voto inserido com sucesso!");
+    private static void cadastroDeVoto() {
+        try {
+            String nomeFuncionario = TecladoUtil.lerString("Informe o nome do Funcionário:");
+            String nomeRestaurante = TecladoUtil.lerString("Informe o nome do Restaurante:");
+    
+            // Chamada ao método corrigida para passar os parâmetros necessários.
+            controller.CadVoto(nomeFuncionario, nomeRestaurante);
+    
+            System.out.println("Voto inserido com sucesso!");
+        } catch (LimiteDeVotosDiariosException e) {
+            System.out.println("Limite de Votos atingidos " + e.getMessage());
+        } catch (Exception e) {
+            System.out.println("Algo deu errado: " + e.getMessage());
+        }
     }
-
     /**
      * Exibe o resultado total da votação.
      */

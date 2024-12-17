@@ -9,8 +9,8 @@ import javax.persistence.*;
 @Table(name = "voto")
 public class Voto {
     @Id
-    @GeneratedValue(strategy=GenerationType.TABLE , generator="restaurante_generator")
-    @TableGenerator(name="restaurante_generator",
+    @GeneratedValue(strategy=GenerationType.TABLE , generator="voto_generator")
+    @TableGenerator(name="voto_generator",
             table="chave",
             pkColumnName="id",
             valueColumnName="valor",

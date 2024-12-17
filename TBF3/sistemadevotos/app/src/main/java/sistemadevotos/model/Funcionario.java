@@ -7,8 +7,8 @@ import javax.persistence.*;
 public class Funcionario {
     
     @Id
-    @GeneratedValue(strategy=GenerationType.TABLE , generator="restaurante_generator")
-    @TableGenerator(name="restaurante_generator",
+    @GeneratedValue(strategy=GenerationType.TABLE , generator="funcionario_generator")
+    @TableGenerator(name="funcionario_generator",
             table="chave",
             pkColumnName="id",
             valueColumnName="valor",

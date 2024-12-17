@@ -59,7 +59,7 @@ public  List<TotalVotosDosRestaurante> totalDeVotosEmGeral(){
      * @param nome O nome do restaurante a ser votado.
      * @throws LimiteDeVotosDiariosException Se o limite diário de votos for excedido.
      */
-public void CadVoto(String nome) throws  LimiteDeVotosDiariosException {
+public void CadVoto(String nome, String nomeRestaurante) throws  LimiteDeVotosDiariosException {
 
         try {
             votosRepository.votar(new Voto(nome, nomeRestaurante));
