@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Cadastro de ceps</title>
+  <link rel="stylesheet" href="../static/estilos.css" th:href="@{/estilos.css}">
+</head>
+<body>
+<div>
+  <h1>Cadastro de Votos</h1>
+  <form method="post" action="/votos" >
+    <label for="voto">Cep:</label>
+    <input id="voto" name="voto">
+
+    <br/>
+
+    <label for="nomeRestaurante">Nome Do Restaurante:</label>
+    <input id="nomeRestaurante" name="nomeRestaurante">
+
+    <br/>
+
+    <label for="nomeFuncionario">Nome Do Funcionario:</label>
+    <input id="nomeFuncionario" name="nomeFuncionario">
+
+    <br/>
+
+    <input type="submit" value="Cadastrar">
+  </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Listagem</title>
+    <link rel="stylesheet" href="../static/estilos.css" th:href="@{/estilos.css}">
+</head>
+<body>
+<div>
+   <h1>Lista de Votos</h1>
+    <a href="/votos/formulario">Novo</a>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nome Funcionario</th>
+            <th>Nome Restaurante</th>
+            <th>Total De Votos</th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="voto : ${votos}">
+            <td th:text="${voto.Id}"></td>
+            <td th:text="${voto.nomeFuncionario}"></td>
+            <td th:text="${voto.nomeRestaurante}"></td>
+            <td th:text="${voto.totalDeVotos}"></td>
+            <td><a th:href="@{voto/editar/{votos}(votos=${voto.})}">
+                Editar</a></td>
+            <td><a th:href="@{voto/delete/{votos}(votos=${voto.})}">
+                Delete</a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+
+
+
+</div>
+
+</body>
+</html>
